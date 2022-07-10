@@ -1,11 +1,14 @@
-
 import speech_recognition as sr
 from gtts import gTTS
 import os
 
+from Aclu.features import animate
+
+
+
+
 class AcluAssistant:
     def __init__(self):
-       
         pass
 
     def listen(self):
@@ -34,5 +37,7 @@ class AcluAssistant:
         language = 'en'
         myobj = gTTS(text=text, lang=language, slow=False)
         myobj.save("audio.mp3")
+        animate.aclu(1)
         os.system("mpg321 audio.mp3")
+        animate.aclu(0)
 

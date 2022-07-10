@@ -1,9 +1,13 @@
 #:kivy 1.9.0
 
-<CanvasWidget@Widget>
-    canvas.before:
+<Background@Widget>
+    canvas:
+        Color:
+            rgba: 0.00784313725490196,0.0196078431372549,0.07450980392156863,1
         Rectangle:
-            pos:self.pos
-            size:self.size
-            source:'background.jpg'
+            pos: self.pos
+            size:1360,720
+    Button:
+        text:"xlfj"
+        on_press:speak
 
