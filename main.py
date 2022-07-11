@@ -1,59 +1,82 @@
-from Aclu import AcluAssistant
-import kivy
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.widget import Widget
-from kivy.graphics import Rectangle, Color
-from kivy.uix.relativelayout import RelativeLayout
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-
+from kivy.core.window import Window
 from kivy.config import Config
+
+# Kivy pakagees
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.relativelayout import RelativeLayout
+from kivy.properties import *
+from kivy.clock import Clock
+
+
+# loading components kv file
+
+from kivy.lang import Builder
+Builder.load_file('components/command_btns.kv')
+
+
+
+# getting instance of aclu
+from Aclu import AcluAssistant
+aclu = AcluAssistant()
 Config.set('graphics', 'resizable', True)
 
-from kivy.core.window import Window
 
+# Global Variables
 windowWidth = 1360
-windowHeight = 720
+windowHeight = 700
+# windowWidth = 700
+# windowHeight = 600
+acluFaceWidth = aclueFaceHeight = 190
+Window.size = (windowWidth, windowHeight)
 
-# Window.size=(windowWidth,windowHeight)
-Window.size = (700, 600)
 
-obj = AcluAssistant()
+
 
 class Background(Widget):
     def __init__(self, **kwargs):
         super(Background, self).__init__(**kwargs)
+    
 
-    def speak(self):
-        print("speaking")
+    # def animateAcluFace(self, arg):
+    #     if arg:
+    #         self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
+    #     else:
+    #         self.ids.aclu_face.source = "Aclu/images/AcluFace1.png"
+    #     print(arg)
+
+    # def pnt(self, *args):
+    #     print("dflkj")
+
+    # def speak(self, *arg):
+    #     self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
+    #     Clock.schedule_once(self.pnt,2)
+    #     self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
+        # self.animateAcluFace(1)
+        # Clock.schedule_once(sel)
+        # # aclu.tts(*arg)
+        # self.animateAcluFace(0)
+    
 
 
-# Aclu assitent configuratio
-
+        
+       
+    
+  
+        
 
 
 
 
 class AcluAssistant(App):
+    afw = NumericProperty(acluFaceWidth)
+    afh = NumericProperty(aclueFaceHeight)
+    ww = NumericProperty(windowWidth)
+    wh = NumericProperty(windowHeight)
     def build(self):
-        # parent = Widget()
-        # self.canvasWidget = Background()
-        # #Aclu Face
-        # self.acu_face = Image(source='Aclu/images/AcluFace.png')
-        # self.acu_face.allow_stretch = True
-        # self.acu_face.keep_ratio = False
-        # self.acu_face.width = 170
-        # self.acu_face.height = 170
-        # self.acu_face.pos = ((windowWidth-self.acu_face.width)/2, (windowHeight-self.acu_face.height)/2)
-
-      
-
-        # #adding widget to app
-        # parent.add_widget(self.canvasWidget)
-        # parent.add_widget(self.acu_face)
-        # return parent;
+        self.icon = "Aclu/images/icon.png"
         return Background()
+ 
 
 if __name__ == "__main__":
     AcluAssistant().run()   

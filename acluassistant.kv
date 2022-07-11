@@ -6,8 +6,18 @@
             rgba: 0.00784313725490196,0.0196078431372549,0.07450980392156863,1
         Rectangle:
             pos: self.pos
-            size:1360,720
-    Button:
-        text:"xlfj"
-        on_press:speak
+            size:app.ww,app.wh
+    # Button:
+    #     text:"xlfj"
+    #     on_press:root.speak("Naani jee pranam")
+    
+    Image:
+        id: aclu_face
+        source:'Aclu/images/AcluFace.png'
+        size:app.afw,app.afh
+        pos: (app.ww-app.afw)/2, (app.wh-app.afh)/2
+
+
+    CommandButtons:
+        size:[150,2*60]
 

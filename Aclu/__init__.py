@@ -1,6 +1,8 @@
 import speech_recognition as sr
 from gtts import gTTS
 import os
+import pyttsx3
+
 
 from Aclu.features import animate
 
@@ -37,7 +39,6 @@ class AcluAssistant:
         language = 'en'
         myobj = gTTS(text=text, lang=language, slow=False)
         myobj.save("audio.mp3")
-        animate.aclu(1)
         os.system("mpg321 audio.mp3")
-        animate.aclu(0)
+
 
