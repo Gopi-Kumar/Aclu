@@ -1,11 +1,11 @@
+from ast import arg
 import speech_recognition as sr
 from gtts import gTTS
 import os
 import pyttsx3
+from threading import Thread
 
-
-from Aclu.features import animate
-
+from Aclu.features import update_domain
 
 
 
@@ -40,5 +40,15 @@ class AcluAssistant:
         myobj = gTTS(text=text, lang=language, slow=False)
         myobj.save("audio.mp3")
         os.system("mpg321 audio.mp3")
+        # Thread(target=os.system, args=("mpg321 audio.mp3"))
+        
+    def updateDomain(self):
+        self.tts("Updating domain")
+        msg = update_domain.update_domain()
+        print(msg)
+        self.tts(msg)
+        
+        
+    
 
 
