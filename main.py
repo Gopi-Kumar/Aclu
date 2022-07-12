@@ -1,3 +1,8 @@
+from threading import Thread
+import time,os
+from mutagen.mp3 import MP3
+from gtts import gTTS
+
 from kivy.core.window import Window
 from kivy.config import Config
 
@@ -10,7 +15,7 @@ from kivy.clock import Clock
 
 
 # loading components kv file
-
+# from components import command_btns
 from kivy.lang import Builder
 Builder.load_file('components/command_btns.kv')
 
@@ -23,10 +28,10 @@ Config.set('graphics', 'resizable', True)
 
 
 # Global Variables
-windowWidth = 1360
-windowHeight = 700
-# windowWidth = 700
-# windowHeight = 600
+# windowWidth = 1360
+# windowHeight = 700
+windowWidth = 700
+windowHeight = 600
 acluFaceWidth = aclueFaceHeight = 190
 Window.size = (windowWidth, windowHeight)
 
@@ -36,37 +41,25 @@ Window.size = (windowWidth, windowHeight)
 class Background(Widget):
     def __init__(self, **kwargs):
         super(Background, self).__init__(**kwargs)
-    
-
-    # def animateAcluFace(self, arg):
-    #     if arg:
-    #         self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
-    #     else:
-    #         self.ids.aclu_face.source = "Aclu/images/AcluFace1.png"
-    #     print(arg)
-
-    # def pnt(self, *args):
-    #     print("dflkj")
-
-    # def speak(self, *arg):
-    #     self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
-    #     Clock.schedule_once(self.pnt,2)
-    #     self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
-        # self.animateAcluFace(1)
-        # Clock.schedule_once(sel)
-        # # aclu.tts(*arg)
-        # self.animateAcluFace(0)
-    
-
-
+        
+    def changeSource(self):
+        audio = MP3("audio.mp3")
+        sec = audio.info.length
+        time.sleep(sec)
+        self.ids.aclu_face.source = "Aclu/images/AcluFace1.png"
+        
+        
+    def speak(self, *arg):
+        self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
+        language = 'en'
+        myobj = gTTS(text=arg[0], lang=language, slow=False)
+        myobj.save("audio.mp3")
+        Thread(target=os.system, args=("mpg321 audio.mp3",)).start()
+        Thread(target=self.changeSource).start()
         
        
-    
-  
         
-
-
-
+    
 
 class AcluAssistant(App):
     afw = NumericProperty(acluFaceWidth)
@@ -75,7 +68,12 @@ class AcluAssistant(App):
     wh = NumericProperty(windowHeight)
     def build(self):
         self.icon = "Aclu/images/icon.png"
-        return Background()
+        parent = Widget()
+        parent.add_widget(Background())
+        return parent
+
+    def testing():
+        print("Testing")
  
 
 if __name__ == "__main__":

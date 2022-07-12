@@ -2,20 +2,28 @@
 
 <CommandButtons@BoxLayout>
     orientation:'vertical'
-    pos:app.ww-150,0
+    pos:app.ww-200,0
     spacing:5
     Button:
+        id : laungh_toolkit
         text:"Launch Toolkit"
         background_normal: "Aclu/images/btn_bg.png"
         background_down: "Aclu/images/btn_bg_red.png"
-        size_hint:1,1
-        # padding: [dp(20),dp(10),dp(20),dp(10)]
-        
+        size_hint:1,1    
+        on_press:root.testing()
        
 
     Button:
         size_hint:1,1
         background_normal: "Aclu/images/btn_bg.png"
         background_down: "Aclu/images/btn_bg_red.png"
-        text:"Update Domain"    
+        text:"Update Domain"   
+
+    Button:
+        size_hint:1,1
+        background_normal: "Aclu/images/btn_bg.png"
+        background_down: "Aclu/images/btn_bg_red.png"
+        text:"Study Mode"    
+
+    
     
