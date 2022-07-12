@@ -5,7 +5,7 @@ import os
 import pyttsx3
 from threading import Thread
 
-from Aclu.features import update_domain
+from Aclu.features import update_domain, launch_mytoolkit
 
 
 
@@ -45,8 +45,12 @@ class AcluAssistant:
     def updateDomain(self):
         self.tts("Updating domain")
         msg = update_domain.update_domain()
-        print(msg)
         self.tts(msg)
+        
+    def launchToolkit(self):
+        self.tts("Lauching toolkit")
+        launch_mytoolkit.launch_mytoolkit()
+        self.tts("Toolkit launched sir")
         
         
     

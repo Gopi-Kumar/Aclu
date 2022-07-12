@@ -25,13 +25,11 @@
     spacing:5
 
     Button:
-        id : laungh_toolkit
         text:"Launch Toolkit"
         background_normal: "Aclu/images/btn_bg.png"
         background_down: "Aclu/images/btn_bg_red.png"
         size_hint:1,1    
-        on_press:root.launchToolkit
-       
+        on_press:root.launchToolkit()
 
     Button:
         size_hint:1,1
@@ -45,9 +43,5 @@
         background_normal: "Aclu/images/btn_bg.png"
         background_down: "Aclu/images/btn_bg_red.png"
         text:"Study Mode"
-        on_press:root.studyMode
-
-    
-    
-
+        on_press:root.studyMode()
 

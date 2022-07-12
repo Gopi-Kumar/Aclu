@@ -69,6 +69,7 @@ class CommandButtons(BoxLayout):
     #     super(CommandButtons, self).__init__(**kwargs)
         
     def launchToolkit(self):
+        aclu.launchToolkit()
         return
 
     def updateDomain(self):
