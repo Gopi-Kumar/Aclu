@@ -77,8 +77,7 @@ class CommandButtons(BoxLayout):
         return 
     
     def studyMode(self):
-        # Background.speak(Background(),"")
-        # StudyMode()
+        aclu.studyMode()
         return
 
 class AcluAssistant(App):

@@ -11,6 +11,8 @@ def launch_mytoolkit():
     time.sleep(3)
     Thread(target=os.system,args=("google-chrome",)).start()
     time.sleep(3)
+    gui.moveTo(547,93)
+    gui.click()
     gui.typewrite("http://localhost:5011")
     gui.typewrite(["enter"])
     gui.moveTo(1347,93)

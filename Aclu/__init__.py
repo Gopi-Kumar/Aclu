@@ -5,7 +5,7 @@ import os
 import pyttsx3
 from threading import Thread
 
-from Aclu.features import update_domain, launch_mytoolkit
+from Aclu.features import update_domain, launch_mytoolkit, study_mode
 
 
 
@@ -51,6 +51,10 @@ class AcluAssistant:
         self.tts("Lauching toolkit")
         launch_mytoolkit.launch_mytoolkit()
         self.tts("Toolkit launched sir")
+        
+    def studyMode(self):
+        study_mode.study_mode()
+        
         
         
     

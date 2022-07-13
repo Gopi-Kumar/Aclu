@@ -45,8 +45,8 @@ def update_domain():
         #     gui.typewrite(["tab"])
         gui.moveTo(1347, 59)
         gui.click()
-        return "Domain updated to godaddy sir"
+        return "Domain updated sir"
         
     else:
-        return "There is some problem in updating domain on godaddy sir"  
+        return "There is some problem in updating domain sir"  
 
