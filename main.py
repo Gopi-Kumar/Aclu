@@ -1,3 +1,4 @@
+from Aclu import AcluAssistant
 from threading import Thread
 import time
 import os
@@ -25,10 +26,7 @@ Config.set('graphics', 'resizable', True)
 
 
 # getting instance of aclu
-from Aclu import AcluAssistant
 aclu = AcluAssistant()
-
-
 
 
 # from Aclu.features.study_mode import StudyMode
@@ -37,48 +35,21 @@ aclu = AcluAssistant()
 # Global Variables
 # windowWidth = 1360
 # windowHeight = 700
-windowWidth = 700
+windowWidth = 900
 windowHeight = 600
 acluFaceWidth = aclueFaceHeight = 190
 Window.size = (windowWidth, windowHeight)
-
-
-
-
-
+  
 class Background(Widget):
     def __init__(self, **kwargs):
         super(Background, self).__init__(**kwargs)
-
-    def changeSource(self):
-        audio = MP3("audio.mp3")
-        sec = audio.info.length
-        time.sleep(4)
-        self.ids.aclu_face.source = "Aclu/images/AcluFace1.png"
-
-    def speak(self, *arg):
-        self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
-        language = 'en'
-        myobj = gTTS(text=arg[0], lang=language, slow=False)
-        myobj.save("audio.mp3")
-        Thread(target=os.system, args=("mpg321 audio.mp3",)).start()
-        Thread(target=self.changeSource).start()
-
-class CommandButtons(BoxLayout):
-    # def __init__(self, **kwargs):
-    #     super(CommandButtons, self).__init__(**kwargs)
-        
-    def launchToolkit(self):
-        aclu.launchToolkit()
-        return
-
-    def updateDomain(self):
-        aclu.updateDomain()
-        return 
     
-    def studyMode(self):
-        aclu.studyMode()
-        return
+    def changeBacgrondAclu1(self):
+        self.ids.aclu_face.source = "Aclu/images/AcluFace.png"
+        
+    
+# class CommandButtons(BoxLayout):   
+   
 
 class AcluAssistant(App):
     afw = NumericProperty(acluFaceWidth)

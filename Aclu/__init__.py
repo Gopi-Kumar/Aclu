@@ -2,7 +2,6 @@ from ast import arg
 import speech_recognition as sr
 from gtts import gTTS
 import os
-import pyttsx3
 from threading import Thread
 
 from Aclu.features import update_domain, launch_mytoolkit, study_mode
@@ -43,17 +42,17 @@ class AcluAssistant:
         # Thread(target=os.system, args=("mpg321 audio.mp3"))
         
     def updateDomain(self):
-        self.tts("Updating domain")
         msg = update_domain.update_domain()
-        self.tts(msg)
+        return msg
         
     def launchToolkit(self):
-        self.tts("Lauching toolkit")
         launch_mytoolkit.launch_mytoolkit()
-        self.tts("Toolkit launched sir")
         
     def studyMode(self):
         study_mode.study_mode()
+        
+    def testing(self):
+        return "Testing done sir"
         
         
         

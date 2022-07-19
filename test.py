@@ -1,3 +1,22 @@
+class Parent:
+    def __init__(self):
+        print("Hello I am parent")
+        pass
+    
+    def ParentFunction(self):
+        print("Hello parent")
+        
+
+class Child:
+    def callParent(self):
+        Parent().ParentFunction()
+
+
+Child().callParent()     
+
+
+     
+        
 
 
 # from mutagen.mp3 import MP3

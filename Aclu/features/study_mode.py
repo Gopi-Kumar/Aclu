@@ -2,6 +2,7 @@
 import json
 import os
 
+#//TODO: add todo
 
 def study_mode():
     try:
@@ -12,8 +13,8 @@ def study_mode():
                 data['isNightLightActivated'] = False
             else:
                 os.system("redshift -o 2500")
-                os.system("redshift -o 2500")
-                os.system("redshift -o 2500")
+                # os.system("redshift -o 2500")
+                # os.system("redshift -o 2500")
                 
                 data['isNightLightActivated'] = True
         file = open("/home/kali/Desktop/projects/Aclu/Aclu/features/config.json", "w")

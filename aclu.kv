@@ -1,0 +1,48 @@
+#:kivy 1.9.0
+
+<Background@Widget>
+    canvas:
+        Color:
+            rgba: 0.00784313725490196,0.0196078431372549,0.07450980392156863,1
+        Rectangle:
+            pos: self.pos
+            size:app.ww,app.wh
+    # Button:
+    #     text:"xlfj"
+    #     on_press:root.changeBacgrondAclu1()
+    
+    Image:
+        id: aclu_face
+        source:'Aclu/images/AcluFace1.png'
+        size:app.afw,app.afh
+        pos: (app.ww-app.afw)/2, (app.wh-app.afh)/2
+        
+
+
+<CommandButtons@BoxLayout>
+    orientation:'vertical'
+    size:180,3*65
+    pos:app.ww-190,10
+    spacing:5
+
+    Button:
+        text:"Launch Toolkit"
+        background_normal: "Aclu/images/btn_bg.png"
+        background_down: "Aclu/images/btn_bg_red.png"
+        size_hint:1,1    
+        on_press:root.launchToolkit()
+
+    Button:
+        size_hint:1,1
+        background_normal: "Aclu/images/btn_bg.png"
+        background_down: "Aclu/images/btn_bg_red.png"
+        text:"Update Domain" 
+        on_press:root.updateDomain()
+
+    Button:
+        size_hint:1,1
+        background_normal: "Aclu/images/btn_bg.png"
+        background_down: "Aclu/images/btn_bg_red.png"
+        text:"Study Mode"
+        on_press:root.studyMode()
+

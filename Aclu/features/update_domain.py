@@ -41,8 +41,6 @@ def update_domain():
         gui.moveTo(174, 454)
         gui.click()
         gui.sleep(8)
-        # for range in (1,60):
-        #     gui.typewrite(["tab"])
         gui.moveTo(1347, 59)
         gui.click()
         return "Domain updated sir"
